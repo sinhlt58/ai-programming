@@ -11,7 +11,7 @@
 //------------------------------------------------------------------------
 
 //this library must be included
-#pragma comment(lib, "winmm.lib")
+//#pragma comment(lib, "winmm.lib")
 
 #include <windows.h>
 
