@@ -116,6 +116,7 @@
     <ClInclude Include="BaseGameEntity.h" />
     <ClInclude Include="EntityNames.h" />
     <ClInclude Include="Kitty.h" />
+    <ClInclude Include="KittyOwnedStates.h" />
     <ClInclude Include="Locations.h" />
     <ClInclude Include="Miner.h" />
     <ClInclude Include="MinerOwnedStates.h" />
@@ -127,6 +128,7 @@
   <ItemGroup>
     <ClCompile Include="BaseGameEntity.cpp" />
     <ClCompile Include="Kitty.cpp" />
+    <ClCompile Include="KittyOwnedStates.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Miner.cpp" />
     <ClCompile Include="MinerOwnedStates.cpp" />
