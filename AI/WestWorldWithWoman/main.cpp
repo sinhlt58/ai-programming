@@ -4,7 +4,7 @@
 #include "MinersWife.h"
 #include "misc/ConsoleUtils.h"
 #include "EntityNames.h"
-
+#include "Kitty.h"
 
 
 std::ofstream os;
@@ -22,12 +22,14 @@ int main()
   //create his wife
   MinersWife Elsa(ent_Elsa);
 
+  Kitty Kitty(ent_cute_kitty);
+
   //run Bob and Elsa through a few Update calls
   for (int i=0; i<20; ++i)
   { 
-    Bob.Update();
-    Elsa.Update();
-
+   // Bob.Update();
+    //Elsa.Update();
+	  Kitty.Update();
     Sleep(800);
   }
 

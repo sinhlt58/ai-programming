@@ -2,6 +2,7 @@
 #include "BaseGameEntity.h"
 #include "State.h"
 #include "StateMachine.h"
+#include "KittyOwnedStates.h"
 
 const int maxHunger = 5;
 
@@ -12,9 +13,10 @@ private:
 	StateMachine<Kitty>* m_pStateMachine;
 public:
 	Kitty(int id) :BaseGameEntity(id), 
-		m_iHunger(maxHunger)
+		m_iHunger(0)
 	{
 		m_pStateMachine = new StateMachine<Kitty>(this);
+		m_pStateMachine->SetCurrentState(Sleeping::GetInstance());
 	};
 
 	void Update();
