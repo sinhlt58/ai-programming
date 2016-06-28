@@ -17,6 +17,7 @@ public:
 	{
 		m_pStateMachine = new StateMachine<Kitty>(this);
 		m_pStateMachine->SetCurrentState(Sleeping::GetInstance());
+		m_pStateMachine->SetGlobalState(KittyGolbalState::GetInstance());
 	};
 
 	void Update();
