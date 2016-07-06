@@ -61,4 +61,6 @@ public:
 	virtual bool OnMessage(Kitty* agent, const Telegram& msg);
 };
 
+class ChasingMouse : public State<Kitty> {
 
+};
