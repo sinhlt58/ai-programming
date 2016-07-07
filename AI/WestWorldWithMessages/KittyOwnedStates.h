@@ -62,5 +62,29 @@ public:
 };
 
 class ChasingMouse : public State<Kitty> {
+private:
+	ChasingMouse() {};
+	ChasingMouse(const ChasingMouse&);
+	ChasingMouse& operator=(const ChasingMouse&);
+public:
+	static ChasingMouse* GetInstance();
 
+	virtual void Enter(Kitty*);
+	virtual void Execute(Kitty*);
+	virtual void Exit(Kitty*);
+	virtual bool OnMessage(Kitty*, const Telegram &msg);
+};
+
+class KillingMouse : public State<Kitty> {
+private:
+	KillingMouse() {};
+	KillingMouse(const KillingMouse&);
+	KillingMouse& operator=(const KillingMouse&);
+public:
+	static KillingMouse* GetInstance();
+
+	virtual void Enter(Kitty*);
+	virtual void Execute(Kitty*);
+	virtual void Exit(Kitty*);
+	virtual bool OnMessage(Kitty*, const Telegram &msg);
 };

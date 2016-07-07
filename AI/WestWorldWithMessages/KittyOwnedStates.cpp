@@ -93,7 +93,47 @@ bool KittyGolbalState::OnMessage(Kitty* agent, const Telegram& msg) {
 	return false;
 }
 
+/*Chasing mouse state*/
+ChasingMouse* ChasingMouse::GetInstance() {
+	static ChasingMouse instance;
+	return &instance;
+}
 
+void ChasingMouse::Enter(Kitty *kitty) {
 
+}
 
+void ChasingMouse::Execute(Kitty *kitty) {
+
+}
+
+void ChasingMouse::Exit(Kitty *kitty) {
+
+}
+
+bool ChasingMouse::OnMessage(Kitty *kitty, const Telegram &msg) {
+	return false;
+}
+
+/*Killing mouse state*/
+KillingMouse* KillingMouse::GetInstance() {
+	static KillingMouse instance;
+	return &instance;
+}
+
+void KillingMouse::Enter(Kitty *kitty) {
+
+}
+
+void KillingMouse::Execute(Kitty *kitty) {
+
+}
+
+void KillingMouse::Exit(Kitty *kitty) {
+
+}
+
+bool KillingMouse::OnMessage(Kitty *kitty, const Telegram &msg) {
+	return false;
+}
 

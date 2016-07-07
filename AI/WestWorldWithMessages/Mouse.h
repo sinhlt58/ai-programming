@@ -2,7 +2,7 @@
 #include "BaseGameEntity.h"
 #include "Locations.h"
 #include "misc/ConsoleUtils.h"
-#include "MinerOwnedStates.h"
+#include "MouseOwnedStates.h"
 #include "fsm/StateMachine.h"
 #include "fsm/State.h"
 
@@ -13,7 +13,9 @@ private:
 	StateMachine<Mouse> *m_pStateMachine;
 public:
 	Mouse(int id) :BaseGameEntity(id), m_iHunger(0){
-			
+		m_pStateMachine = new StateMachine<Mouse>(this);
+		m_pStateMachine->SetCurrentState(AtHome::GetInstance());
+		m_pStateMachine->SetGlobalState(MouseGlobalState::GetInstance());
 	};
 	~Mouse();
 
