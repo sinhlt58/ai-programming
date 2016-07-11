@@ -9,9 +9,9 @@ const int maxHunger = 5;
 class Kitty : public BaseGameEntity
 {
 private:
-	int m_iHunger;
 	StateMachine<Kitty>* m_pStateMachine;
 public:
+	int m_iHunger;
 	Kitty(int id) :BaseGameEntity(id), 
 		m_iHunger(0)
 	{

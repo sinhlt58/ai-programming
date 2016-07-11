@@ -1,5 +1,6 @@
 #pragma once
 #include "fsm/State.h"
+#include "Helpers.h"
 
 class Kitty;
 struct Telegram;

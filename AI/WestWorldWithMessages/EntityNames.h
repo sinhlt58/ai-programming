@@ -9,7 +9,9 @@ enum
 
   ent_Elsa,
 
-  ent_Cute_Kitty
+  ent_Cute_Kitty,
+
+  ent_Mouse
 };
 
 inline std::string GetNameOfEntity(int n)
@@ -27,6 +29,9 @@ inline std::string GetNameOfEntity(int n)
   case ent_Cute_Kitty:
 	
 	  return "Kute Kitty";
+
+  case ent_Mouse:
+	  return "Gorgeuos Mouse";
 
   default:
 

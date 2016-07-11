@@ -39,7 +39,7 @@ void MessageDispatcher::Discharge(BaseGameEntity* pReceiver,
   if (!pReceiver->HandleMessage(telegram))
   {
     //telegram could not be handled
-    cout << "Message not handled";
+    cout << "Message not handled\n";
   }
 }
 
@@ -64,7 +64,7 @@ void MessageDispatcher::DispatchMessage(double  delay,
   //make sure the receiver is valid
   if (pReceiver == NULL)
   {
-    cout << "\nWarning! No Receiver with ID of " << receiver << " found";
+    cout << "\nWarning! No Receiver with ID of " << receiver << " found\n";
 
     return;
   }

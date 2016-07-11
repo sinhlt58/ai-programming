@@ -9,6 +9,7 @@
 #include "misc/ConsoleUtils.h"
 #include "EntityNames.h"
 #include "Kitty.h"
+#include "Mouse.h"
 
 std::ofstream os;
 
@@ -20,7 +21,7 @@ int main()
 #endif
 
   //seed random number generator
-  srand((unsigned) time(NULL));
+  srand((unsigned) time(0));
 
   //create a miner
   Miner* Bob = new Miner(ent_Miner_Bob);
@@ -31,17 +32,21 @@ int main()
   //create a kitty
   Kitty *kitty = new Kitty(ent_Cute_Kitty);
 
+  Mouse *mouse = new Mouse(ent_Mouse);
+
   //register them with the entity manager
   EntityMgr->RegisterEntity(Bob);
   EntityMgr->RegisterEntity(Elsa);
   EntityMgr->RegisterEntity(kitty);
+  EntityMgr->RegisterEntity(mouse);
 
   //run Bob and Elsa through a few Update calls
   for (int i=0; i<30; ++i)
   { 
-    Bob->Update();
-    Elsa->Update();
-	kitty->Update();
+    //Bob->Update();
+    //Elsa->Update();
+	  mouse->Update();
+	  kitty->Update();
     //dispatch any delayed messages
     Dispatch->DispatchDelayedMessages();
 

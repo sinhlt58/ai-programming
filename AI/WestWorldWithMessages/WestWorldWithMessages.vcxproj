@@ -135,6 +135,7 @@
     <ClInclude Include="BaseGameEntity.h" />
     <ClInclude Include="EntityManager.h" />
     <ClInclude Include="EntityNames.h" />
+    <ClInclude Include="Helpers.h" />
     <ClInclude Include="Kitty.h" />
     <ClInclude Include="KittyOwnedStates.h" />
     <ClInclude Include="Locations.h" />

@@ -1,7 +1,9 @@
 #pragma once
 #include "fsm/State.h"
+#include "Helpers.h"
 
 class Mouse;
+struct Telegram;
 
 class MouseGlobalState : public State<Mouse> {
 private:
@@ -21,7 +23,7 @@ class AtHome : public State<Mouse> {
 private:
 	AtHome() {}
 	AtHome(const AtHome&);
-	AtHome* operator=(const AtHome&);
+	AtHome& operator=(const AtHome&);
 public:
 	static AtHome* GetInstance();
 
@@ -49,7 +51,7 @@ class RunningFromCat : public State<Mouse> {
 private:
 	RunningFromCat(){}
 	RunningFromCat(const RunningFromCat&);
-	RunningFromCat* operator=(const RunningFromCat&);
+	RunningFromCat& operator=(const RunningFromCat&);
 public:
 	static RunningFromCat* GetInstance();
 	
@@ -63,9 +65,23 @@ class DiedByCat : public State<Mouse> {
 private:
 	DiedByCat() {}
 	DiedByCat(const DiedByCat&);
-	DiedByCat* operator=(const DiedByCat&);
+	DiedByCat& operator=(const DiedByCat&);
 public:
 	static DiedByCat* GetInstance();
+
+	virtual void Enter(Mouse*);
+	virtual void Execute(Mouse*);
+	virtual void Exit(Mouse*);
+	virtual bool OnMessage(Mouse*, const Telegram &msg);
+};
+
+class GoingHome : public State<Mouse> {
+private:
+	GoingHome() {}
+	GoingHome(const GoingHome&);
+	GoingHome& operator=(GoingHome&);
+public:
+	static GoingHome* GetInstance();
 
 	virtual void Enter(Mouse*);
 	virtual void Execute(Mouse*);
