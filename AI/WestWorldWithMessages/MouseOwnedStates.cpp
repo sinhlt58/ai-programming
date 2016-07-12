@@ -28,6 +28,7 @@ bool MouseGlobalState::OnMessage(Mouse *mouse, const Telegram &msg) {
 	switch (msg.Msg) {
 		case Msg_CatHeardNoiseFromMouse:
 			mouse->GetFSM()->ChangeState(RunningFromCat::GetInstance());
+			return true;
 		break;
 	}
 	return false;
@@ -138,11 +139,36 @@ RunningFromCat* RunningFromCat::GetInstance() {
 }
 
 void RunningFromCat::Enter(Mouse *mouse) {
-	cout << GetNameOfEntity(mouse->ID()) << " Oh GOD! He heard me. Let's get the heck out of here.\n";
+	cout << GetNameOfEntity(mouse->ID()) << " Enter Runing From Cat state: Oh GOD! He heard me. Let's get the heck out of here.\n";
 }
 
 void RunningFromCat::Execute(Mouse *mouse) {
-	cout << GetNameOfEntity(mouse->ID()) << " Get away from me you stupid cat...\n";
+	mouse->m_iTmpDistance--;
+	cout << GetNameOfEntity(mouse->ID()) << " Execute Runing From Cat state: Get away from me you stupid cat...\n";
+	if (mouse->m_iTmpDistance == 0) {
+		if (Helpers::MyRandInt() < 4) {
+			cout << GetNameOfEntity(mouse->ID()) << " Execute Runing From Cat state: See you later the stupid, idiot cat.\n";
+			Dispatch->DispatchMessage(
+				SEND_MSG_IMMEDIATELY,
+				mouse->ID(),
+				ent_Cute_Kitty,
+				Msg_MouseEscapedFromCat,
+				NO_ADDITIONAL_INFO
+			);
+			mouse->GetFSM()->ChangeState(GoingHome::GetInstance());
+		}
+		else {
+			cout << GetNameOfEntity(mouse->ID()) << " Execute Runing From Cat state: Bye bye the earth ... I die.\n";
+			Dispatch->DispatchMessage(
+				SEND_MSG_IMMEDIATELY,
+				mouse->ID(),
+				ent_Cute_Kitty,
+				Msg_MouseTooClosedToCat,
+				NO_ADDITIONAL_INFO
+			);
+			mouse->GetFSM()->ChangeState(DiedByCat::GetInstance());
+		}
+	}
 }
 
 void RunningFromCat::Exit(Mouse *mouse) {
@@ -160,11 +186,11 @@ DiedByCat* DiedByCat::GetInstance() {
 }
 
 void DiedByCat::Enter(Mouse *mouse) {
-
+	cout << GetNameOfEntity(mouse->ID()) << " Enter Died By Cat state: A' dont eat me pls.\n";
 }
 
 void DiedByCat::Execute(Mouse *mouse) {
-
+	cout << GetNameOfEntity(mouse->ID()) << " Execute Died By Cat state: My blood is every where.\n";
 }
 
 void DiedByCat::Exit(Mouse *mouse) {

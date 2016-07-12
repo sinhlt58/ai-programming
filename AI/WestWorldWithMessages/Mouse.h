@@ -11,13 +11,15 @@ private:
 public:
 	int m_iHunger;//hunger high means very hungry.
 	int m_iNumItem;
-	int m_iMaxHunger = 5;
-	int m_iMaxItemInInventory = 3;
+	int m_iMaxHunger;
+	int m_iMaxItemInInventory;
+	int m_iTmpDistance;
 
 	Mouse(int id) :BaseGameEntity(id), m_iHunger(0), 
 									m_iNumItem(0),
 									m_iMaxHunger(5),
-									m_iMaxItemInInventory(3){
+									m_iMaxItemInInventory(3),
+									m_iTmpDistance(4){
 		m_pStateMachine = new StateMachine<Mouse>(this);
 		m_pStateMachine->SetCurrentState(AtHome::GetInstance());
 		m_pStateMachine->SetGlobalState(MouseGlobalState::GetInstance());

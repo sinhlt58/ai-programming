@@ -85,9 +85,9 @@ void KittyGolbalState::Enter(Kitty* kitty) {
 
 }
 void KittyGolbalState::Execute(Kitty* kitty) {
-	if (RandFloat() < 0.1) {
+	/*if (RandFloat() < 0.1) {
 		kitty->GetFSM()->ChangeState(Peeing::GetInstance());
-	}
+	}*/
 }
 void KittyGolbalState::Exit(Kitty* kitty) {
 
@@ -136,6 +136,18 @@ void ChasingMouse::Exit(Kitty *kitty) {
 }
 
 bool ChasingMouse::OnMessage(Kitty *kitty, const Telegram &msg) {
+	switch (msg.Msg) {
+		case Msg_MouseTooClosedToCat:
+			cout << GetNameOfEntity(kitty->ID()) << " On Message Chasing Mouse: I got u litte dude ahahaha.\n";
+			kitty->GetFSM()->ChangeState(KillingMouse::GetInstance());
+			return true;
+			break;
+		case Msg_MouseEscapedFromCat:
+			cout << GetNameOfEntity(kitty->ID()) << " On Message Chasing Mouse: I am too old for this, oh my back.\n";
+			kitty->GetFSM()->RevertToPreviousState();
+			return true;
+			break;
+	}
 	return false;
 }
 
@@ -146,11 +158,11 @@ KillingMouse* KillingMouse::GetInstance() {
 }
 
 void KillingMouse::Enter(Kitty *kitty) {
-
+	cout << GetNameOfEntity(kitty->ID()) << " Enter Killing Mouse state: How can I eat this mouse.\n";
 }
 
 void KillingMouse::Execute(Kitty *kitty) {
-
+	cout << GetNameOfEntity(kitty->ID()) << " Execute Killing Mouse state: Mouse's meat is good.\n";
 }
 
 void KillingMouse::Exit(Kitty *kitty) {

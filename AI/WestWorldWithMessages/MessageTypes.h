@@ -9,7 +9,8 @@ enum message_type
   Msg_StewReady,
   Msg_MouseMakeANoise,
   Msg_CatHeardNoiseFromMouse,
-  Msg_MouseTooClosedToCat
+  Msg_MouseTooClosedToCat,
+  Msg_MouseEscapedFromCat
 };
 
 
