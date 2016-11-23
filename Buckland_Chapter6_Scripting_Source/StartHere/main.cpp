@@ -9,14 +9,15 @@
 //then don't forget to add the libraries in your project settings!
 //#pragma comment(lib, "lua.lib")
 //#pragma comment(lib, "lualib.lib")
- #pragma comment(lib, "lua5.1.lib")
+//#pragma comment(lib, "lua53.lib")
 
 #include <iostream>
 
 int main()
 {
   //create a lua state
-  lua_State* pL = lua_open();
+
+  lua_State* pL = luaL_newstate();
 
   //enable access to the standard libraries
  /* luaopen_base(pL);

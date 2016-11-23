@@ -141,7 +141,7 @@ void Raven_Bot::Update()
     //appraise and arbitrate between all possible high level goals
     if (m_pGoalArbitrationRegulator->isReady())
     {
-       m_pBrain->Arbitrate(); 
+       m_pBrain->Arbitrate();
     }
 
     //update the sensory memory with any visual stimulus

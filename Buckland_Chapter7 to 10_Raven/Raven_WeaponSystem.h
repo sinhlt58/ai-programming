@@ -95,7 +95,7 @@ public:
   void          ShootAt(Vector2D pos)const;
 
   //returns a pointer to the current weapon
-  Raven_Weapon* GetCurrentWeapon()const{return m_pCurrentWeapon;} 
+  Raven_Weapon* GetCurrentWeapon()const{return m_pCurrentWeapon;}
 
   //returns a pointer to the specified weapon type (if in inventory, null if 
   //not)
